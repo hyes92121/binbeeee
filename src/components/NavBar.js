@@ -2,7 +2,9 @@ import React from 'react'
 import '../styles/NavBar.css'
 
 export default () => {
-    return (
-        <h1 className="navbar">BinBeee's React Tutorial</h1>
-    )
+  return (
+    <div className="navbar">
+      <h1>HK AI Demo</h1>
+    </div>
+  )
 }

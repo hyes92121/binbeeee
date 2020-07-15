@@ -118,7 +118,7 @@ class OCRForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} encType="multipart/form-data">
         <div className="file-input">
-          <input type="file" name="image" onChange={this.handleImage} /><br />
+          <input type="file" name="image" onChange={this.handleImage} /><br /><br />
         </div>
         <label>Choose an API:</label>
         <select name="api_form" value={idxToAPI(this.state.API_idx)} onChange={this.handleAPIChange}>
@@ -136,7 +136,7 @@ class OCRForm extends React.Component {
             <option value={_option[1]} key={_option[0]}>{_option[1]}</option>
           ))}
         </select>
-        <br />
+        <br /><br />
         <div className="text-center">
           <input className="btn btn-primary" type="submit" value="Submit"></input>
         </div>

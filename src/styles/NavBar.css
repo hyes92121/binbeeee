@@ -1,6 +1,13 @@
 .navbar {
-    height: 2rem;
+    height: 5rem;
     text-align: center;
-    color: red;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    background: #1A1A1F;
 }
+
+.navbar h1{
+    text-align: center;
+    color: white;
+    font-family: 'Quicksand';
+}
+

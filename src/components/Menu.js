@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Grid, Menu, Segment } from 'semantic-ui-react'
+import React from 'react'
+import { Grid, Menu } from 'semantic-ui-react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default () => {
@@ -21,6 +21,12 @@ export default () => {
           active={activeItem === '/ocr'}
           as={Link}
           to='/ocr'
+        />
+        <Menu.Item
+          name='layout'
+          active={activeItem === '/layout'}
+          as={Link}
+          to='/layout'
         />
         <Menu.Item
           name='translate'
