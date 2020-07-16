@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {GlassMagnifier} from 'react-image-magnifiers'
 import '../styles/OCRForm.css'
 
 const APIs = [
@@ -46,7 +47,7 @@ const toAPIArgs = (api_idx, option_idx) => {
 class OCRForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { API_idx: 0, option_idx: 0, imageValue: null, showResult: false, init: true }; // default uses the old OCR api
+    this.state = { API_idx: 0, option_idx: 0, imageValue: null, showResult: false, init: true };
     this.submitResult = null;
   }
 
@@ -72,7 +73,8 @@ class OCRForm extends React.Component {
 
     axios({
       method: 'post',
-      url: 'upload-react',
+      // url: 'upload-react',
+      url: '//localhost:8000/OCR/upload-react',
       data: formData,
       config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
@@ -89,7 +91,7 @@ class OCRForm extends React.Component {
     this.setState({ option_idx: new_option_index });
     console.log(toAPIArgs(this.state.API_idx, new_option_index));
   }
-
+// //<img className="OCRResult-img" src={this.submitResult.imgLink} alt="User Image" />
   render() {
     let display = null;
     if (this.submitResult) {
@@ -104,11 +106,27 @@ class OCRForm extends React.Component {
       } else {
         display = (
           <div>
-            <br /><br />
-            <img className="OCRResult-img" src={this.submitResult.imgLink} alt="User Image" />
-            <br /><br />
-            <div className="text-center">
-              <a className="btn btn-primary" href={this.submitResult.JSONLink} download="result.json">Download JSON file</a>{" "}
+            <div className="OCRResult-img">
+              <div className="img-show-area">
+                <GlassMagnifier
+                  imageSrc={this.submitResult.imgLink}
+                  largeImageSrc={this.submitResult.imgLink}
+                  magnifierSize="40%"
+                  square="true"
+                />
+              </div>
+            </div>
+            <div className="download-row">
+              <div className="download-column">
+                <div className="col-align-right">
+                  <a className="btn btn-primary" href={this.submitResult.imgLink} download="image.json">Download full image</a>{" "}
+                </div>
+              </div>
+              <div className="download-column">
+                <div className="col-align-left">
+                  <a className="btn btn-primary" href={this.submitResult.JSONLink} download="result.json">Download JSON file</a>{" "}
+                </div>
+              </div>
             </div><br />
           </div>
         )

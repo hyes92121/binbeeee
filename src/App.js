@@ -7,6 +7,7 @@ import img_3 from "./image/3.jpg"
 import NavBar from './components/NavBar';
 import MyMenu from './components/Menu'
 import OCRForm from './containers/OCRForm'
+import LayoutForm from './containers/LayoutForm'
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,7 +29,7 @@ function App() {
             <MyMenu/>
             {/* A <Switch> looks through its children <Route>s and
                   renders the first one that matches the current URL. */}
-            <Grid.Column width={14}>
+            <Grid.Column width={12}>
               <Switch>
                 <Route exact path="/">
                     <h1>Home</h1>
@@ -37,7 +38,7 @@ function App() {
                     <OCRForm />
                 </Route>
                 <Route exact path="/layout">
-                    <h1>layout</h1>
+                    <LayoutForm />
                 </Route>
                 <Route exact path="/translate">
                     <h1>translate</h1>
